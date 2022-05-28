@@ -1,6 +1,9 @@
 name: ci
 
-on: push
+on:
+  push:
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
   build:
@@ -35,5 +38,5 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{github.sha}}
-            gofort/${{ github.repository }}:latest
-            gofort/${{ github.repository }}:${{github.sha}}
+            ${{ github.repository }}:latest
+            ${{ github.repository }}:${{github.sha}}
