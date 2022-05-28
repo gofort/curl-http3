@@ -1,7 +1,6 @@
 # curl-http3
 
 ![size](https://img.shields.io/docker/image-size/gofort/curl-http3/latest)
-![status](https://img.shields.io/docker/cloud/build/gofort/curl-http3)
 
 Curl Docker container compiled with HTTP/3 (h3/quic) support.
 
