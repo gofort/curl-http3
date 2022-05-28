@@ -31,7 +31,7 @@ RUN echo "\n\n\033[0;32m===> UPDATING OS\033[0m" && \
       git clone https://github.com/ngtcp2/ngtcp2 && \
       cd ngtcp2 && \
       autoreconf -fi && \
-      ./configure PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig LDFLAGS="-Wl,-rpath,/usr/local/lib" --prefix=/usr/local --enable-lib-only && \
+      ./configure PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig LDFLAGS="-Wl,-rpath,/usr/local/lib64" --prefix=/usr/local --enable-lib-only && \
       make -j `lscpu | awk /"^Core"/'{print$NF}'` && \
       make install && \
       cd ../ && \
@@ -40,10 +40,11 @@ RUN echo "\n\n\033[0;32m===> UPDATING OS\033[0m" && \
       git clone https://github.com/curl/curl && \
       cd curl && \
       ./buildconf && \
-      LDFLAGS="-Wl,-rpath,/usr/local/lib" ./configure --with-openssl=/usr/local --with-nghttp3=/usr/local --with-ngtcp2=/usr/local && \
+      LDFLAGS="-Wl,-rpath,/usr/local/lib64" ./configure --with-openssl=/usr/local --with-nghttp3=/usr/local --with-ngtcp2=/usr/local && \
       make -j `lscpu | awk /"^Core"/'{print$NF}'` && \
       make install && \
       cd ../ && \
+      ldconfig && \
 # cleanup
       echo "\n\n\033[0;32m===> CLEANUP\033[0m" && \
       apt purge build-essential git autoconf libtool pkg-config -y && \
