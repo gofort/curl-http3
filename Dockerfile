@@ -1,9 +1,7 @@
 FROM ubuntu:22.04
 
-RUN echo "\n\n\033[0;32m===> UPDATING OS\033[0m" && \
+RUN echo "\n\n\033[0;32m===> INSTALLING BUILD DEPENDANCIES\033[0m" && \
       apt update && \
-# build tools
-      echo "\n\n\033[0;32m===> INSTALLING BUILD DEPENDANCIES\033[0m" && \
       apt install -y build-essential git autoconf libtool pkg-config && \
 # remove existing curl if present
       echo "\n\n\033[0;32m===> REMOVING EXISTING CURL INSTALL\033[0m" && \
