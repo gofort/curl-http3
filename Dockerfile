@@ -1,6 +1,5 @@
 FROM ubuntu:22.04
-### Build instructions from: https://github.com/curl/curl/blob/master/docs/HTTP3.md
-# upgrade OS
+
 RUN echo "\n\n\033[0;32m===> UPDATING OS\033[0m" && \
       apt update && \
 # build tools
