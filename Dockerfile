@@ -53,3 +53,4 @@ RUN echo "\n\n\033[0;32m===> INSTALLING BUILD DEPENDANCIES\033[0m" && \
 
 # Last bits
 ENTRYPOINT ["curl"]
+
