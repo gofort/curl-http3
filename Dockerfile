@@ -8,7 +8,7 @@ RUN echo "\n\n\033[0;32m===> INSTALLING BUILD DEPENDANCIES\033[0m" && \
       apt purge -y curl && \
 # build openssl
       echo "\n\n\033[0;32m===> BUILD OPENSSL\033[0m" && \
-      git clone --depth 1 -b openssl-3.2.0 https://github.com/quictls/openssl && \
+      git clone --depth 1 -b openssl-3.2.0 https://github.com/openssl/openssl && \
       cd openssl && \
       ./config enable-tls1_3 --prefix=/usr/local && \
       make -j `lscpu | awk /"^Core"/'{print$NF}'` && \
